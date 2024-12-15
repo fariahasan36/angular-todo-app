@@ -1,12 +1,9 @@
-<main class="main">
-  <div class="content">
-    <div class="left-side">
-      
-      <h1 class="text-3xl font-bold underline">Hello, {{ title }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
-    </div>
-    <div class="divider" role="separator" aria-label="Divider"></div>
-    
-  </div>
+<main class="flex flex-col h-screen justify-between">
+  <app-header></app-header>
+
+  <p>Congratulations! Your app is running. 🎉</p>
+
+
+<app-footer></app-footer>
 </main>
 <router-outlet />
