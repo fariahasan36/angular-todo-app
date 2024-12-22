@@ -1,9 +1,15 @@
-<main class="flex flex-col h-screen justify-between">
-  <app-header></app-header>
+<main class="flex flex-col h-screen justify-between font-light">
+  <div class="container">
+    <app-header></app-header>
 
-  <p>Congratulations! Your app is running. 🎉</p>
-
-
-<app-footer></app-footer>
+    <div class="w-1/2 mx-auto">
+      <div class="w-full flex justify-center mt-4">
+        <app-todo-form class="w-1/2"></app-todo-form>
+      </div>
+      <app-todo-list></app-todo-list>
+     
+    </div>
+  </div>
+  <app-footer></app-footer>
 </main>
 <router-outlet />
