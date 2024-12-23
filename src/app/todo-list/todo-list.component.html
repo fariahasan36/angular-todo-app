@@ -8,9 +8,9 @@
       </tr>
     </thead>
     <tbody>
-        <!-- <tr></tr> -->
+      <!-- <tr></tr> -->
       <!-- <tr class="border-2 border-black text-center " > -->
-        <tr class="even:bg-orange-100 odd:bg-white" *ngFor="let task of tasks">
+        <tr class="even:bg-orange-100 odd:bg-white" *ngFor="let task of tasksProp">
             <td class="border px-4 py-2">{{ task.id }}</td>
             <td class="border px-4 py-2">{{ task.taskName }}</td>
             <td class="border px-4 py-2">{{ task.priority }}</td>

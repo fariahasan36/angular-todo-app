@@ -4,10 +4,9 @@
 
     <div class="w-1/2 mx-auto">
       <div class="w-full flex justify-center mt-4">
-        <app-todo-form class="w-1/2"></app-todo-form>
+        <app-todo-form (taskAdded)="addTask($event)" class="w-1/2"></app-todo-form>
       </div>
-      <app-todo-list></app-todo-list>
-     
+      <app-todo-list [tasksProp]="tasks"></app-todo-list>     
     </div>
   </div>
   <app-footer></app-footer>
