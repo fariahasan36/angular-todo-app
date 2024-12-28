@@ -30,12 +30,12 @@ export class TodoFormComponent {
         id: this.taskId, // Create a random id for the new task
         taskName: this.taskName,
         priority: this.priority,
-        status: 'Done'
+        status: 'Pending'
       };
       this.taskAdded.emit(editTask);
     }
     
     this.taskName = '';
-    this.priority = 'High';
+    this.priority = '1';
   }
 }

@@ -1,26 +1,57 @@
-<table class="table-auto border border-collapse mx-auto mt-14">
-    <thead>
-      <tr class="bg-orange-100">
-        <th class="font-normal border text-orange-700 px-4 py-2">Id</th>
-        <th class="font-normal border text-orange-700 px-4 py-2">Task</th>
-        <th class="font-normal border text-orange-700 px-4 py-2">Priority</th>
-        <th class="font-normal border text-orange-700 px-4 py-2">Status</th>
-        <th class="font-normal border text-orange-700 px-4 py-2">Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- <tr></tr> -->
-      <!-- <tr class="border-2 border-black text-center " > -->
-        <tr class="even:bg-orange-100 odd:bg-white" *ngFor="let task of tasksProp">
-            <td class="border px-4 py-2">{{ task.id }}</td>
-            <td class="border px-4 py-2">{{ task.taskName }}</td>
-            <td class="border px-4 py-2">{{ task.priority == '1' ? 'High' : 'Low'}}</td>
-            <td class="border px-4 py-2">{{ task.status }}</td>
-            <td class="border px-4 py-2"><button (click)="editTask(task)" class="w-1/2 rounded-full bg-orange-300 px-4 py-2">
-              Edit</button>  <button (click)="deleteTask(task.id)" class="w-1/2 rounded-full bg-orange-300 px-4 py-2">Delete</button></td>
-        </tr>
-      <!-- </tr> -->
-    </tbody>
-  </table>
-  
-        
+<table class="table-auto border border-collapse mx-auto mt-14 mb-3">
+  <thead>
+    <tr class="bg-orange-100">
+      <th class="font-normal border text-orange-700 px-4 py-2">Is Task Done</th>
+      <th class="font-normal border text-orange-700 px-4 py-2">Id</th>
+      <th class="font-normal border text-orange-700 px-4 py-2">Task</th>
+      <th class="font-normal border text-orange-700 px-4 py-2">Priority</th>
+      <th class="font-normal border text-orange-700 px-4 py-2">Status</th>
+      <th class="font-normal border text-orange-700 px-4 py-2">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- <tr></tr> -->
+    <!-- <tr class="border-2 border-black text-center " > -->
+    <tr class="even:bg-orange-100 odd:bg-white" *ngFor="let task of tasksProp">
+      <td class="text-center border px-4 py-2">
+        <div
+          *ngIf="task.status === 'Done'; then content; else other_content"
+        ></div>
+        <ng-template #content
+          ><input
+            class="accent-orange-400"
+            type="checkbox"
+            checked
+            onclick="return false;"
+        /></ng-template>
+        <ng-template #other_content
+          ><input
+            class="accent-orange-400"
+            type="checkbox"
+            (change)="toggleCompleted(task)"
+        /></ng-template>
+      </td>
+      <td class="border px-4 py-2">{{ task.id }}</td>
+      <td class="border px-4 py-2">{{ task.taskName }}</td>
+      <td class="border px-4 py-2">
+        {{ task.priority == "1" ? "High" : "Low" }}
+      </td>
+      <td class="border px-4 py-2">{{ task.status }}</td>
+      <td class="border px-4 py-2">
+        <button
+          (click)="editTask(task)"
+          class="w-1/2 rounded-full bg-orange-300 px-4 py-2"
+        >
+          Edit
+        </button>
+        <button
+          (click)="deleteTask(task.id)"
+          class="w-1/2 rounded-full bg-orange-300 px-4 py-2"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+    <!-- </tr> -->
+  </tbody>
+</table>

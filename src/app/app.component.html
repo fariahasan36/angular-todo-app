@@ -6,7 +6,7 @@
       <div class="w-full flex justify-center mt-4">
         <app-todo-form [taskId]="taskId" [taskName]="taskName" [priority]="priority" [isEditing]="isEditing" (taskAdded)="addTask($event)" class="w-1/2"></app-todo-form>
       </div>
-      <app-todo-list [tasksProp]="tasks" (taskEdit)="editTask($event)" (taskDelete)="deleteTask($event)"></app-todo-list>     
+      <app-todo-list [tasksProp]="tasks" (taskEdit)="editTask($event)" (taskDelete)="deleteTask($event)" (taskIsDone)="editTaskStatus($event)"></app-todo-list>     
     </div>
   </div>
   <app-footer></app-footer>
